@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>{{ anket.title }} </h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for q in anket.questions.all %}
+            <p> {{q.question_text}}
+            <input type="checkbox" name="{{ q.id }}">
+            </p>
+        {% endfor %}
+            <input type="submit">
+    </form>
+{% endblock %}
